@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include badge_management *.css
+recursive-include badge_management *.csv
+recursive-include badge_management *.html
+recursive-include badge_management *.ico
+recursive-include badge_management *.js
+recursive-include badge_management *.json
+recursive-include badge_management *.md
+recursive-include badge_management *.png
+recursive-include badge_management *.py
+recursive-include badge_management *.svg
+recursive-include badge_management *.txt
+recursive-exclude badge_management *.pyc
