@@ -4,6 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
+from datetime import date, timedelta
 from frappe.model.document import Document
 
 class HistoryOfPassage(Document):
@@ -16,10 +17,14 @@ class HistoryOfPassage(Document):
 		return frappe.db.get_single_value('Badge Management Settings', 'default_item')
 
 	def get_unpaired_document(self):
+		"""
+			Look for the unpaired document of the day
+		"""
 		return frappe.db.get_list('History Of Passage',
 			filters={
 				'customer' : self.customer,
-				'is_paired' : 0
+				'is_paired' : 0,
+				'date' : ['>', date.today()]
 			},
 			fields= ['name', 'date']
 		)
